@@ -7,13 +7,13 @@ let config = {
     },
     output: {
         filename: '[name]__[hash].js',
-        path: path.resolve(__dirname, 'build'),
+        path: path.resolve(__dirname, 'public'),
         publicPath: '',
     },
     devServer: {
-        contentBase: 'build',
+        contentBase: path.resolve(__dirname, 'public'),
         port: 3000,
-        
+
     },
     resolve: {
         modules: ['src', 'node_modules'],
