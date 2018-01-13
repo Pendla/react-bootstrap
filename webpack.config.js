@@ -39,7 +39,11 @@ let config = {
             use: [{
                 loader: 'babel-loader',
                 options: {
-                    presets: ['react']
+                    presets: [
+                        ['env', { targets: { browsers: ['last 2 versions'] } } ],
+                        'stage-3',
+                        'react'
+                    ]
                 }
             }]
         }]
