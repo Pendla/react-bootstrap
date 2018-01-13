@@ -1,6 +1,14 @@
-const webpack = require('webpack');
 const path = require('path');
+const webpack = require('webpack');
 
+//
+// PLUGINS
+//
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+//
+// CONFIG
+//
 let config = {
     entry: {
         main: 'index.js'
@@ -13,7 +21,6 @@ let config = {
     devServer: {
         contentBase: path.resolve(__dirname, 'public'),
         port: 3000,
-
     },
     resolve: {
         modules: ['src', 'node_modules'],
@@ -29,6 +36,18 @@ let config = {
             }]
         }]
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            filename: path.resolve(__dirname, 'public', 'index.html'),
+            template: path.resolve(__dirname, 'src', 'index.html'),
+            title: 'React Bootstrap', // :REPLACE:
+            inject: true,
+            xhtml: true,
+            favicon: undefined, // :REPLACE:
+            cache: true,
+            showErrors: true,
+        }),
+    ]
 };
 
 module.exports = config;
