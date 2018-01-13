@@ -19,8 +19,16 @@ let config = {
         publicPath: '',
     },
     devServer: {
-        contentBase: path.resolve(__dirname, 'public'),
+        host: '0.0.0.0',
+        contentBase: false,
         port: 3000,
+        clientLogLevel: 'warning',
+        compress: true,
+        hot: true,
+        overlay: {
+            errors: true,
+            warnings: true,
+        },
     },
     resolve: {
         modules: ['src', 'node_modules'],
@@ -47,6 +55,7 @@ let config = {
             cache: true,
             showErrors: true,
         }),
+        new webpack.HotModuleReplacementPlugin(),
     ]
 };
 
