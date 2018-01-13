@@ -3,4 +3,4 @@ import ReactDOM from 'react-dom';
 
 import App from 'app';
 
-ReactDOM.Render(App);
+ReactDOM.render(<App />, document.getElementById('app'));
